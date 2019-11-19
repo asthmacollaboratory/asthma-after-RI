@@ -1,21 +1,14 @@
-#$ -S /bin/sh
-
-
-## This is currently very much in progress and will be completed before Thanksgiving 2019.
-
-# user limits: -c max size of core files created
-date
-hostname
-ulimit -c 0
+#!/usr/bin/env bash
 
 # ==============================================================================
 # Copyright 2019, Asthma Collaboratory
-# coded by Jennifer Elhawary 
+# Coded by Jennifer R. Elhawary (jennifer.elhawary@ucsf.edu)
+# Special acknowledgement to Kevin L. Keys for his brilliant coding skills that 
+# provided a template for this project.
 # ==============================================================================
 
-
 # load environment variables from env.sh
-source ./env.sh
+source $PWD/asthma-after-RI/analysis/env.sh
 
 # binaries
 RSCRIPT="${RSCRIPT}"
@@ -31,27 +24,60 @@ figdir="${figdir}"
 
 # files
 phenocovarfile="${phenocovarfile}"
+rsvseasonfile="${rsvseasonfile}" # see readme
 
 # variables
-pheno="${pheno}"
+populations="${populations}"
+outcome="${outcome}"
+predictor="${predictor}"
 covars="${covars}"
-assoc_type="${assoc_type}"
+glmfamily="${glmfamily}"
 plot_type="${plot_type}"
-outsfx="${outsfx}"
 
 # scripts
-R_set_environment="${srcdir}/set_R_environment.R"
-R_run_analysis="${srcdir}/run_AssocTests.R"
+R_run_assoc_analysis="${srcdir}/run_AssocTests.R"
+R_run_pairwisep_analysis="${srcdir}/run_PairwiseP.R"
+R_run_fig_creation="${srcdir}/run_FigCreations.R"
 
-# run analysis
-Rscript $R_run_analysis \
-	--phenotype-file $phenocovarfile\
-	--phenotype-name $pheno \
-	--covariates $covars \
-	--association-type $assoc_type \
-	--plot-extension $plot_type \
-	--library-path $Rlib \
+# will loop over populations
+# requires checking lengths of these arrays
+# throw error if they aren't the same length
+# otherwise, proceed with analysis
+npops="${#populations[@]}"
+ncovars="${#covars[@]}"
+if [[ ${npops} -ne ${ncovars} ]]; then
+    echo -e "Number of populations = ${npops}\nNumber of covariate lists = ${ncovars}\nThese numbers must match." 1>&2
+    exit 1
+fi
+
+
+# loop over phenotypes and covariates
+for i in $(seq 0 $((${npops} - 1)) ); do 
+
+    pop="${populations[$i]}"
+	covariates="${covars[$i]}"
+
+# run association analysis
+Rscript $R_run_assoc_analysis \
+	--phenotype-file $phenocovarfile \
+	--population $pop \
+	--outcome-name $outcome \
+	--predictor-names $predictors \
+	--covariate-list $covariates \
+	--glm-family $glmfamily \
+	--output-directory $resultsdir 	
+done
+
+# run pairwise p-value tests
+Rscript $R_run_pairwisep_analysis \
 	--output-directory $resultsdir \
-	--source-directory $srcdir \
-	--binaries-directory $bindir \
-	--output-suffix $outsfx
+	--predictor-names $predictors 
+
+# run figure creation
+Rscript $R_run_fig_creation \
+	--phenotype-file $phenocovarfile \
+	--rsv-season-file $rsvseasonfile \
+	--predictor-names $predictors \
+	--plot-type $plot_type \
+	--bin-directory $bindir \
+	--output-directory $resultsdir
