@@ -30,7 +30,15 @@ PrevalencePlot = function(mydata, outdir = NULL, predictors, plot.type = "png"){
    p <- ggplot(prev.table, aes(x=predictor, y=as.numeric(as.character(prev)), fill=group)) +
         geom_bar(stat='identity', position = position_dodge(width=0.91)) +
         scale_y_continuous(labels=scales::percent) +
-        geom_text(aes(label=scales::percent(as.numeric(as.character(prev)))), position=position_dodge(width=0.9), vjust=-0.5, size = 3)
+        geom_text(aes(label=scales::percent(as.numeric(as.character(prev)))), 
+                  position=position_dodge(width=0.9), vjust=-0.5, size = 3) +
+        guides(fill = guide_legend(title = "",override.aes = list(linetype = 0))) +
+        theme(axis.text = element_text(size=15),
+              axis.title.y = element_text(size = rel(1.5), face="bold"),
+              legend.text = element_text(size = 15),
+              legend.position="bottom", 
+              plot.title = element_text(hjust = 0.5)) +
+        labs(x = '', y='Proportion of Early-Childhood Respiratory Illness')
 
    # save to file?
     if (!is.null(outdir) & is.character(outdir)) {
