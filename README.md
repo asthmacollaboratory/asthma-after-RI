@@ -25,5 +25,6 @@ asthma-after-RI
 ```
 
 ## RSV Season Figure
-Data for the RSV season figure was obtained from: 
->McGuiness CB, Boron ML, Saunders B, Edelman L, Kumar VR, Rabon-Stith KM. Respiratory syncytial virus surveillance in the United States, 2007-2012: results from a national surveillance system. Pediatr Infect Dis J. 2014;33(6):589-94. Epub 2014/01/22. doi: 10.1097/INF.0000000000000257. PubMed PMID: 24445835; PMCID: PMC4025589
+Please contact the authors of the following paper for access to the data used to make the RSV season figure:
+
+[McGuiness CB, Boron ML, Saunders B, Edelman L, Kumar VR, Rabon-Stith KM. Respiratory syncytial virus surveillance in the United States, 2007-2012: results from a national surveillance system. Pediatr Infect Dis J. 2014;33(6):589-94. Epub 2014/01/22. doi: 10.1097/INF.0000000000000257. PubMed PMID: 24445835; PMCID: PMC4025589](https://www.ncbi.nlm.nih.gov/pubmed/24445835)
