@@ -22,7 +22,13 @@ OddsRatioPlot = function(mydata, outdir = NULL, plot.type = "png"){
    p <- ggplot(mydata, aes(color = pop)) +
         geom_pointrange(aes(x = predictor, y = as.numeric(OR), ymin = as.numeric(LL), ymax = as.numeric(UL)), position = position_dodge(width=0.6)) +
         scale_y_log10() +
-        geom_hline(aes(yintercept = 1), col = 'gray50', lty = 2)
+        geom_hline(aes(yintercept = 1), col = 'gray50', lty = 2) +
+        theme(legend.position = "bottom", 
+              axis.text=element_text(size=15), 
+              axis.title=element_text(size=15,face="bold"), 
+              legend.text=element_text(size=15)) +
+        guides(color = guide_legend(title = "",override.aes = list(linetype = 0))) +
+        labs(y = "log10(Odds Ratio)", x = "")
 
    # save to file?
     if (!is.null(outdir) & is.character(outdir)) {
