@@ -58,7 +58,7 @@ for i in $(seq 0 $((${npops} - 1)) ); do
 	covariates="${covars[$i]}"
 
 # run association analysis
-Rscript $R_run_assoc_analysis \
+$RSCRIPT $R_run_assoc_analysis \
 	--phenotype-file $phenocovarfile \
 	--population $pop \
 	--outcome-name $outcome \
@@ -69,12 +69,12 @@ Rscript $R_run_assoc_analysis \
 done
 
 # run pairwise p-value tests
-Rscript $R_run_pairwisep_analysis \
+$RSCRIPT $R_run_pairwisep_analysis \
 	--output-directory $resultsdir \
 	--predictor-names $predictors 
 
 # run figure creation
-Rscript $R_run_fig_creation \
+$RSCRIPT $R_run_fig_creation \
 	--phenotype-file $phenocovarfile \
 	--rsv-season-file $rsvseasonfile \
 	--predictor-names $predictors \
