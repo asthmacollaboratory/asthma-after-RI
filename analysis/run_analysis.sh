@@ -5,6 +5,9 @@
 # Coded by Jennifer R. Elhawary (jennifer.elhawary@ucsf.edu)
 # Special acknowledgement to Kevin L. Keys for his brilliant coding skills that 
 # provided a template for this project.
+
+# To run this, please go into your project folder and run the following:
+# 	bash ./asthma-after-RI/analysis/run_analysis.sh
 # ==============================================================================
 
 # load environment variables from env.sh
