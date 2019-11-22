@@ -17,7 +17,7 @@ phenotype_file=NULL
 
 rsvseason_file=NULL
 # default: NULL
-# help: "The filename containing the data for the RSV season figure. See readme for
+# help: "The filename containing the data for the RSV season figure. See README for
 #  information on how to obtain this data."
 
 populations=NULL
