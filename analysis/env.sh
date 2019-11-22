@@ -13,12 +13,12 @@ projectdir=~
 phenotype_file=NULL
 # default: NULL
 # help: "The filename of your cleaned phenotype file. Make sure this file is 
-#	  in your project directory and has your phenotype and covariates."
+#	in your project directory and has your phenotype and covariates."
 
 rsvseason_file=NULL
 # default: NULL
 # help: "The filename containing the data for the RSV season figure. See README for
-#  information on how to obtain this data."
+#  	information on how to obtain this data."
 
 populations=NULL
 # default: NULL
@@ -27,34 +27,34 @@ populations=NULL
 outcome=NULL
 # default: NULL
 # help: "Your outcome variable. Make sure I match exactly to the variable name in your 
-#	  phenotype file."
+#	phenotype file."
 
 predictors=NULL
 # default: NULL
 # help: "Your predictor or comma separated list of predictors; no spaces please. Make 
-#	  sure I match exactly to the variable name(s) in your phenotype file."
+#	sure I match exactly to the variable name(s) in your phenotype file."
 
 covars=NULL
 # default: NULL
 # help: "Array of comma separated lists of your covariates; no spaces within the lists
-#	  please. Make sure each covariate name matches exactly to those in your phenotype file."
+#	please. Make sure each covariate name matches exactly to those in your phenotype file."
 
 glmfamily="binomial"
 # default: "binomial"
 # help: "Please let me know the glm family you are using. I accept 
 # 	"binomial", "gaussian", "Gamma", "inverse.gaussian", "poisson", "quasi", 
-#	  "quasibinomial", "quasipoisson"."
+#	"quasibinomial", "quasipoisson"."
 
 plot_type="png"
 # default: "png"
 # help: "Please let me know in what format you want your plots to be saved in. I accept 
-#	  "eps", "ps", "tex" (pictex), "pdf", "jpeg", "tiff", "png", "bmp", "svg", and 
-#   "wmf" (windows only)."		
+#	"eps", "ps", "tex" (pictex), "pdf", "jpeg", "tiff", "png", "bmp", "svg", and 
+#   	"wmf" (windows only)."		
 										
 rscript_path=/usr/local/bin/Rscript
 # default: /usr/local/bin/Rscript
 # help: "Please let me know the path to your Rscript. You can find me by asking `which Rscript`
-#   in the terminal."		
+#   	in the terminal."		
 
 ### STOP DO NOT EDIT FURTHER ###
 # ----------------------------------------------------------------------------------------
