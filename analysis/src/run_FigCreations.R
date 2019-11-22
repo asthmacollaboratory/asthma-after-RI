@@ -27,7 +27,7 @@ option_list = list(
         c("-b", "--rsv-season-file"),
         type    = "character",
         default = NULL,
-        help    = "Path to rsv season data from _____.",
+        help    = "Path to rsv season data. See README for more information.",
         metavar = "character"
     ),
     make_option(
@@ -85,7 +85,7 @@ setwd("~/Desktop/RSVpaperproject/")
 cat("Loading data for figure creation\n")
 
 # load RSV season data
-# this dataset is not housed on the github webpage and may be accessed by contacting the authors of:___________
+# see README for more information
 rsvdata.df = fread(season.file, header = T)
 cat("=>  rsv season data loaded\n")
 
