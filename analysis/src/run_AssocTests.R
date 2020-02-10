@@ -25,7 +25,7 @@ option_list = list(
         c("-b", "--population"),
         type    = "character",
         default = NULL,
-        help    = "Population identifier found in the variable Pop_Code in your phenotype file",
+        help    = "Population identifier found in the variable Pop_Code in your phenotype file.",
         metavar = "character"
     ),
     make_option(
