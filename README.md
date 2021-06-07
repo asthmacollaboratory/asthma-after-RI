@@ -1,7 +1,7 @@
 # asthma-after-RI
 Repository for the paper "*Differential asthma risk following respiratory infection in children from three minority populations.*" \
 This paper was published in [PLoS One](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0231782) on May 5, 2020 \
-A preprint was also made available on [MedRxiv](https://www.medrxiv.org/content/10.1101/19011528v1)) on Novemenber 22, 2019
+A preprint was also made available on [MedRxiv](https://www.medrxiv.org/content/10.1101/19011528v1) on Novemenber 22, 2019
 
 ## Analysis
 This repository contains all the analysis scripts needed to reproduce all results and figures in the paper "*Differential asthma risk following respiratory infection in children from three minority populations.*" Specifically you will find the following:
